@@ -1,0 +1,64 @@
+part of katana_routing;
+
+abstract class UIPage extends StatefulHookWidget {
+  const UIPage({Key? key}) : super(key: key);
+
+  Widget build(BuildContext context);
+
+  /// The closest instance of this class that encloses the given context.
+  ///
+  /// Typical usage:
+  ///
+  /// ```dart
+  /// UIPageState state = UIPage.of(context);
+  /// ```
+  ///
+  /// [context]: Build context.
+  static UIPageState of(BuildContext context) {
+    final scope = context
+        .getElementForInheritedWidgetOfExactType<_UIPageScope>()!
+        .widget as _UIPageScope;
+    return scope.state;
+  }
+
+  /// Build context.
+  ///
+  /// Only available in Hook timings.
+  @protected
+  BuildContext get context => useContext();
+
+  /// True to apply safe area to Body.
+  @protected
+  bool get applySafeArea => true;
+
+  @override
+  State<StatefulWidget> createState() => UIPageState();
+}
+
+class UIPageState extends State<UIPage> {
+  void refresh() => setState(() {});
+  @override
+  Widget build(BuildContext context) {
+    return _UIPageScope(
+      state: this,
+      child: GestureDetector(
+        onTap: () => context.unfocus(),
+        child: widget.applySafeArea
+            ? SafeArea(
+                child: widget.build(context),
+              )
+            : widget.build(context),
+      ),
+    );
+  }
+}
+
+class _UIPageScope extends InheritedWidget {
+  const _UIPageScope({required Widget child, required this.state, Key? key})
+      : super(key: key, child: child);
+  final UIPageState state;
+  @override
+  bool updateShouldNotify(_UIPageScope old) {
+    return true;
+  }
+}

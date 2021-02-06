@@ -16,14 +16,14 @@ import 'package:katana/katana.dart';
 import "package:flutter/material.dart";
 export 'package:katana/katana.dart';
 
-part "lib/use_page.dart";
-part "lib/extensions.dart";
-part "lib/theme_color.dart";
-part "lib/route_config.dart";
-part "lib/route_query.dart";
-part "lib/ui_page_route.dart";
-part "lib/ui_material_app.dart";
-part "lib/widget_theme.dart";
+part "src/use_page.dart";
+part "src/extensions.dart";
+part "src/theme_color.dart";
+part "src/route_config.dart";
+part "src/route_query.dart";
+part "src/ui_page_route.dart";
+part "src/ui_material_app.dart";
+part "src/widget_theme.dart";
 
 part "page/ui_page.dart";
 part "page/ui_page_scaffold.dart";

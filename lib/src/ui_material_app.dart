@@ -63,6 +63,7 @@ class UIMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Config.initialize();
     RouteConfig._initialize(routes);
     return ProviderScope(
       child: FlavorScope(

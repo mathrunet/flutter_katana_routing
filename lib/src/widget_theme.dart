@@ -24,7 +24,7 @@ class WidgetTheme {
   }
 
   /// Loading indicator.
-  final Widget Function(BuildContext context, Color? color) loadingIndicator;
+  final Widget Function(BuildContext context, Color? color)? loadingIndicator;
 
   static Widget _loadingIndicator(BuildContext context, Color? color) {
     return const CircularProgressIndicator();

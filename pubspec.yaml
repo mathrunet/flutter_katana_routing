@@ -1,6 +1,6 @@
 name: katana_routing
 description: Katana package for routing.
-version: 0.8.0-nullsafety.8
+version: 0.8.0-nullsafety.10
 homepage: https://mathru.net
 repository: https://github.com/mathrunet/flutter_katana_routing
 

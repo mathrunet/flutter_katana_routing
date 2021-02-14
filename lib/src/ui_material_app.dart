@@ -184,7 +184,7 @@ class WidgetThemeScope extends InheritedWidget {
   ///
   /// [oldWidget]: Previous widget.
   @override
-  bool updateShouldNotify(FlavorScope oldWidget) {
+  bool updateShouldNotify(WidgetThemeScope oldWidget) {
     return true;
   }
 }

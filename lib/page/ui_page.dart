@@ -5,6 +5,18 @@ abstract class UIPage extends StatefulHookWidget {
 
   Widget build(BuildContext context);
 
+  @protected
+  @mustCallSuper
+  void onInit() {}
+
+  @protected
+  @mustCallSuper
+  void onDidInit(BuildContext context) {}
+
+  @protected
+  @mustCallSuper
+  void onDispose() {}
+
   /// The closest instance of this class that encloses the given context.
   ///
   /// Typical usage:
@@ -36,6 +48,25 @@ abstract class UIPage extends StatefulHookWidget {
 }
 
 class UIPageState extends State<UIPage> {
+  @override
+  @protected
+  @mustCallSuper
+  void initState() {
+    super.initState();
+    widget.onInit();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      widget.onDidInit(context);
+    });
+  }
+
+  @override
+  @protected
+  @mustCallSuper
+  void dispose() {
+    super.dispose();
+    widget.onDispose();
+  }
+
   void refresh() => setState(() {});
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,11 @@
 name: katana_routing
 description: Katana package for routing.
-version: 0.8.0-nullsafety.11
+version: 0.8.0-nullsafety.12
 homepage: https://mathru.net
 repository: https://github.com/mathrunet/flutter_katana_routing
 
 environment:
-  sdk: ">=2.12.0-134 <3.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

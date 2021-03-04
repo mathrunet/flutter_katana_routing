@@ -212,10 +212,12 @@ class RouteConfig {
         config.fullScreen ||
         config.transition == PageTransition.fullscreen)
       return PageTransition.fullscreen;
-    else if (map.get("transition") == PageTransition.none ||
+    else if (map.get("transition", PageTransition.none) ==
+            PageTransition.none ||
         config.transition == PageTransition.none)
       return PageTransition.none;
-    else if (map.get("transition") == PageTransition.fade ||
+    else if (map.get("transition", PageTransition.none) ==
+            PageTransition.fade ||
         config.transition == PageTransition.fade)
       return PageTransition.fade;
     else

@@ -55,6 +55,10 @@ extension BuildContextExtensions on BuildContext {
       ModalRoute.of(this)?.settings.arguments as Map<String, dynamic>? ??
       const <String, dynamic>{};
 
+  T get<T>(String key, T orElse) {
+    return arg.get(key, orElse);
+  }
+
   /// Get the media qury related to context
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 

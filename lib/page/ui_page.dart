@@ -1,7 +1,9 @@
 part of katana_routing;
 
 abstract class UIPage extends StatefulHookWidget {
-  const UIPage({Key? key}) : super(key: key);
+  UIPage({Key? key}) : super(key: key);
+
+  final String puid = uuid;
 
   Widget build(BuildContext context);
 

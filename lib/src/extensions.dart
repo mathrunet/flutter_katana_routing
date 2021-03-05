@@ -53,10 +53,14 @@ extension BuildContextExtensions on BuildContext {
   /// Get the data passed to the page.
   Map<String, dynamic> get arg =>
       ModalRoute.of(this)?.settings.arguments as Map<String, dynamic>? ??
-      const <String, dynamic>{};
+      UIPage.of(this)._map;
 
   T get<T>(String key, T orElse) {
     return arg.get(key, orElse);
+  }
+
+  void operator []=(String key, dynamic value) {
+    arg[key] = value;
   }
 
   /// Get the media qury related to context

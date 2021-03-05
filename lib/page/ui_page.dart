@@ -48,6 +48,7 @@ abstract class UIPage extends StatefulHookWidget {
 }
 
 class UIPageState extends State<UIPage> {
+  final Map<String, dynamic> _map = {};
   @override
   @protected
   @mustCallSuper

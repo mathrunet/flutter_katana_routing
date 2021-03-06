@@ -1,10 +1,10 @@
 part of katana_routing;
 
-abstract class UIInternalPage extends UIPage {
+abstract class InternalPageWidget extends PageWidget {
   /// Used to display a page within a page.
   ///
   /// [key]: Widget key.
-  UIInternalPage({Key? key}) : super(key: key);
+  InternalPageWidget({Key? key}) : super(key: key);
 
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 

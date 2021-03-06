@@ -26,6 +26,6 @@ part "src/ui_material_app.dart";
 part "src/widget_theme.dart";
 
 part "page/ui_page.dart";
-part "page/ui_page_scaffold.dart";
+// part "page/ui_page_scaffold.dart";
 part "page/ui_internal_page.dart";
-part "page/ui_internal_page_scaffold.dart";
+// part "page/ui_internal_page_scaffold.dart";

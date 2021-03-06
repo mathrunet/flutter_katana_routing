@@ -3,6 +3,12 @@ part of katana_routing;
 abstract class UIPage extends StatefulHookWidget {
   UIPage({Key? key}) : super(key: key);
 
+  /// Key for Scaffold.
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  /// State for Scaffold.
+  ScaffoldState get scaffold => scaffoldKey.currentState!;
+
   final String puid = uuid;
 
   Widget build(BuildContext context);

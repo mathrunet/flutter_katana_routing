@@ -1,6 +1,6 @@
 name: katana_routing
 description: Katana package for routing.
-version: 0.8.0-nullsafety.25
+version: 0.8.0-nullsafety.28
 homepage: https://mathru.net
 repository: https://github.com/mathrunet/flutter_katana_routing
 
@@ -13,10 +13,10 @@ dependencies:
     sdk: flutter
     
   katana: ^0.8.0-nullsafety
-  flutter_riverpod: ^0.13.0-nullsafety
-  hooks_riverpod: ^0.13.0-nullsafety
-  riverpod: ^0.13.0-nullsafety
-  flutter_hooks: ^0.16.0-nullsafety
+  flutter_riverpod: ^0.13.1
+  hooks_riverpod: ^0.13.1
+  riverpod: ^0.13.1
+  flutter_hooks: ^0.16.0
 
 dev_dependencies:
   flutter_test:

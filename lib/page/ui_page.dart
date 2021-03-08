@@ -19,3 +19,13 @@ class UIPage {
     return scope.state;
   }
 }
+
+class _PageScope extends InheritedWidget {
+  const _PageScope({required Widget child, required this.state, Key? key})
+      : super(key: key, child: child);
+  final PageState state;
+  @override
+  bool updateShouldNotify(_PageScope old) {
+    return true;
+  }
+}

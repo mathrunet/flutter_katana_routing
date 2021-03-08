@@ -1,15 +1,7 @@
 part of katana_routing;
 
-abstract class PageWidget extends StatefulHookWidget {
-  PageWidget({Key? key}) : super(key: key);
-
-  /// Key for Scaffold.
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
-  /// State for Scaffold.
-  ScaffoldState get scaffold => scaffoldKey.currentState!;
-
-  final String puid = uuid;
+abstract class PageHookWidget extends StatefulHookWidget {
+  const PageHookWidget({Key? key}) : super(key: key);
 
   Widget build(BuildContext context);
 
@@ -39,7 +31,7 @@ abstract class PageWidget extends StatefulHookWidget {
   State<StatefulWidget> createState() => PageState();
 }
 
-class PageState extends State<PageWidget> {
+class PageState extends State<PageHookWidget> {
   final Map<String, dynamic> _map = {};
   @override
   @protected
@@ -74,15 +66,5 @@ class PageState extends State<PageWidget> {
             : widget.build(context),
       ),
     );
-  }
-}
-
-class _PageScope extends InheritedWidget {
-  const _PageScope({required Widget child, required this.state, Key? key})
-      : super(key: key, child: child);
-  final PageState state;
-  @override
-  bool updateShouldNotify(_PageScope old) {
-    return true;
   }
 }

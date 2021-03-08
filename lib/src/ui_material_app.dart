@@ -30,11 +30,17 @@ class UIMaterialApp extends StatelessWidget {
     this.checkerboardRasterCacheImages = false,
     this.checkerboardOffscreenLayers = false,
     this.showSemanticsDebugger = false,
+    this.builder,
     this.debugShowCheckedModeBanner = true,
+    this.minTextScaleFactor = 0.8,
+    this.maxTextScaleFactor = 1.2,
   }) : super(key: key);
 
   final String flavor;
+  final double minTextScaleFactor;
+  final double maxTextScaleFactor;
   final WidgetBuilder? home;
+  final Widget Function(BuildContext, Widget?)? builder;
   final GlobalKey<NavigatorState>? navigatorKey;
   final Map<String, RouteConfig> routes;
   final String initialRoute;
@@ -86,7 +92,22 @@ class UIMaterialApp extends StatelessWidget {
             navigatorObservers: [
               ...navigatorObservers,
             ],
-            builder: null,
+            builder: (context, child) {
+              final platformFactor = MediaQuery.of(context).textScaleFactor;
+              final mediaQuery = MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaleFactor: platformFactor.limit(
+                    minTextScaleFactor,
+                    maxTextScaleFactor,
+                  ),
+                ),
+                child: child ?? const SizedBox(),
+              );
+              if (builder != null) {
+                return builder!.call(context, mediaQuery);
+              }
+              return mediaQuery;
+            },
             title: title,
             onUnknownRoute: onUnknownRoute == null
                 ? null

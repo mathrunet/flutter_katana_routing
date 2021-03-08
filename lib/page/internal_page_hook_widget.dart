@@ -1,6 +1,6 @@
 part of katana_routing;
 
-abstract class InternalPageWidget extends PageWidget {
+abstract class InternalPageWidget extends PageHookWidget {
   /// Used to display a page within a page.
   ///
   /// [key]: Widget key.

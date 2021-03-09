@@ -210,18 +210,19 @@ class RouteConfig {
       Map<String, dynamic> map, RouteConfig config) {
     if (map.containsKey("fullscreen") ||
         config.fullScreen ||
-        config.transition == PageTransition.fullscreen)
+        config.transition == PageTransition.fullscreen) {
       return PageTransition.fullscreen;
-    else if (map.get("transition", PageTransition.none) ==
+    } else if (map.get("transition", PageTransition.initial) ==
             PageTransition.none ||
-        config.transition == PageTransition.none)
+        config.transition == PageTransition.none) {
       return PageTransition.none;
-    else if (map.get("transition", PageTransition.none) ==
+    } else if (map.get("transition", PageTransition.initial) ==
             PageTransition.fade ||
-        config.transition == PageTransition.fade)
+        config.transition == PageTransition.fade) {
       return PageTransition.fade;
-    else
+    } else {
       return PageTransition.initial;
+    }
   }
 }
 

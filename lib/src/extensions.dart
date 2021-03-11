@@ -31,8 +31,8 @@ extension NavigatorStateExtensions on NavigatorState {
 
 extension BuildContextExtensions on BuildContext {
   /// Updates the content of the widget.
-  void refresh() {
-    UIPage.of(this).refresh();
+  void rebuild() {
+    UIScope.of(this).rebuild();
   }
 
   /// Outputs the theme related to the context.
@@ -53,7 +53,7 @@ extension BuildContextExtensions on BuildContext {
   /// Get the data passed to the page.
   Map<String, dynamic> get arg =>
       ModalRoute.of(this)?.settings.arguments as Map<String, dynamic>? ??
-      UIPage.of(this)._map;
+      UIScope.of(this)._map;
 
   T get<T>(String key, T orElse) {
     return arg.get(key, orElse);

@@ -31,7 +31,8 @@ abstract class PageHookWidget extends StatefulHookWidget {
   State<StatefulWidget> createState() => PageState();
 }
 
-class PageState extends State<PageHookWidget> {
+class PageState extends State<PageHookWidget> implements UIScopeStateBase {
+  @override
   final Map<String, dynamic> _map = {};
   @override
   @protected
@@ -52,10 +53,11 @@ class PageState extends State<PageHookWidget> {
     widget.onDispose();
   }
 
-  void refresh() => setState(() {});
+  @override
+  void rebuild() => setState(() {});
   @override
   Widget build(BuildContext context) {
-    return _PageScope(
+    return _UIScope(
       state: this,
       child: GestureDetector(
         onTap: () => context.unfocus(),

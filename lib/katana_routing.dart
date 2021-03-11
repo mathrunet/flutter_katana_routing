@@ -24,7 +24,7 @@ part "src/route_query.dart";
 part "src/ui_page_route.dart";
 part "src/ui_material_app.dart";
 part "src/widget_theme.dart";
+part "src/ui_scope.dart";
 
-part "page/ui_page.dart";
 part 'page/page_hook_widget.dart';
 part 'page/internal_page_hook_widget.dart';
